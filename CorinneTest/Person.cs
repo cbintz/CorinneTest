@@ -1,7 +1,7 @@
 ﻿using System;
 namespace CorinneTest
 {
-    partial class Person
+    public class Person 
     {
         private string name;
         public string Name
@@ -21,11 +21,11 @@ namespace CorinneTest
             }
         }
 
-        private Gender _gender;
-        public Gender PersonGender
+        private Gender gender;
+        public Gender Gender
         {
-            get => this._gender; 
-            set { this._gender = value; }
+            get => this.gender; 
+            set { this.gender = value; }
 
         }
 
@@ -33,17 +33,13 @@ namespace CorinneTest
         public DateTime BirthDate
         {
             get => this.birthDate; 
-            set { 
-                if birthDate.Month < 1
-                this.birthDate = value; }
         }
 
-
-        public Person(string myName, int myAge, Gender myGender, DateTime myBirthDate) 
+        public Person(string myName, int myAge, Gender myGender, DateTime myBirthDate)
         {
             this.name = myName;
             this.age = myAge;
-            this._gender = myGender;
+            this.gender = myGender;
             this.birthDate = myBirthDate;
         }
     }

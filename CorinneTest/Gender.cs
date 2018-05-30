@@ -1,9 +1,4 @@
 ﻿namespace CorinneTest
 {
-    partial class Person
-    {
-        public enum gender { Man, Woman, GenderNonBinary };
-
-
-    }
+    public enum Gender { Man, Woman, GenderNonBinary };
 }
