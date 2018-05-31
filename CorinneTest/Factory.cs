@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CorinneTest
 {
-    class Factory : IPersonFactory
+    class Factory 
     {
 
         static Random rnd = new Random();
@@ -17,8 +17,8 @@ namespace CorinneTest
             int i = 0;
             while (i < numOfPeople)
             {
-                Person newPerson = null; 
-                switch (rnd.Next(1,9))
+                Person newPerson = null;
+                switch (rnd.Next(1, 9))
                 {
                     case 1:
                         newPerson = MakeWoman(lowAge, highAge);
@@ -44,17 +44,19 @@ namespace CorinneTest
                     case 8:
                         newPerson = MakeSeniorMan(lowAge, highAge);
                         break;
-                    case 9:
+                    default:
                         newPerson = MakeSeniorPerson(lowAge, highAge);
                         break;
+
+
                 }
-                if (newPerson!= null) { list.Add(newPerson); }
+                list.Add(newPerson);
                 i++;
 
             }
             return list;
         }
-
+        #region various genBirthDates
         public static DateTime? GenRanAdultBirthDate(int lowAge, int highAge)
         {
             if (highAge < 18)
@@ -70,7 +72,7 @@ namespace CorinneTest
             DateTime maxDate;
             if (lowAge >= 18) { return null; }
             if (highAge < 18) { maxDate = new DateTime((2018 - highAge), 5, 29); }
-            else {maxDate = new DateTime(2000, 5, 29); }
+            else { maxDate = new DateTime(2000, 5, 29); }
             int range = (DateTime.Today - maxDate).Days;
             return DateTime.Today.AddDays(rnd.Next(range));
         }
@@ -94,7 +96,9 @@ namespace CorinneTest
             int range = (minDate - start).Days;
             return start.AddDays(rnd.Next(range));
         }
+        #endregion
 
+        #region various genAges
         public static int? GenAdultAge(int highAge)
         {
             if (highAge < 28)
@@ -125,8 +129,9 @@ namespace CorinneTest
             return age;
         }
 
+        #endregion
 
-        // maybe make a random list of names to choose from
+        #region makePerson
         public static Person MakeWoman(int lowAge, int highAge)
         {
             return new Person("Michelle", GenAdultAge(highAge), Gender.Woman, GenRanAdultBirthDate(lowAge, highAge));
@@ -178,7 +183,7 @@ namespace CorinneTest
 
         }
 
-
+#endregion
 
     }
 }

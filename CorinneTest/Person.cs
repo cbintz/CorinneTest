@@ -3,17 +3,17 @@ namespace CorinneTest
 {
     public class Person 
     {
-        private string name;
+        string name;
         public string Name
         {
             get => this.name; 
             set { this.name = value; }
         }
 
-        private int? age;
-        public int? Age
+        int? age;
+        public int Age
         {
-            get => this.age;
+            get { if (this.age == null) this.Age = 1; return this.age; }
             set {
                 if (value < 1) value = 1;
                 else if (value > 100) value = 100;
@@ -21,7 +21,7 @@ namespace CorinneTest
             }
         }
 
-        private Gender gender;
+        Gender gender;
         public Gender Gender
         {
             get => this.gender; 
@@ -29,7 +29,7 @@ namespace CorinneTest
 
         }
 
-        private DateTime? birthDate;
+        DateTime? birthDate;
         public DateTime? BirthDate
         {
             get => this.birthDate; 

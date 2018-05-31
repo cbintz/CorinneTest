@@ -33,8 +33,6 @@
     <Compile Include="Gender.cs" />
     <Compile Include="PersonDataSource.cs" />
     <Compile Include="Factory.cs" />
-    <Compile Include="IPerson.cs" />
-    <Compile Include="IPersonFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
