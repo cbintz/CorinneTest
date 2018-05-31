@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CorinneTest
 {
-    class Factory : IPersonFactory
+    public class Factory : IPersonFactory
     {
 
         static Random rnd = new Random();

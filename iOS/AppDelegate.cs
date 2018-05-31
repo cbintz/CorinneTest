@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using CorinneTest;
 
 namespace CorinneTest.iOS
 {
@@ -20,6 +21,20 @@ namespace CorinneTest.iOS
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
+
+
+            // put a breakpoint here or add code if you want to check stuff
+            // you can also put watches on variables to see them in realtime
+            var people = Factory.CreateInRange(5, 85, 100);
+            foreach(var person in people) {
+
+                // just labeling these out so you can inspect and debug or whatever
+                var age = person.Age;
+                var bdate = person.BirthDate;
+                var gender = person.Gender;
+                var name = person.Name;
+                System.Console.Write(person);
+            }
 
             return true;
         }
