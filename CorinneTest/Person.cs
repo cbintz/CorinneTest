@@ -10,8 +10,8 @@ namespace CorinneTest
             set { this.name = value; }
         }
 
-        private int age;
-        public int Age
+        private int? age;
+        public int? Age
         {
             get => this.age;
             set {
@@ -29,13 +29,13 @@ namespace CorinneTest
 
         }
 
-        private DateTime birthDate;
-        public DateTime BirthDate
+        private DateTime? birthDate;
+        public DateTime? BirthDate
         {
             get => this.birthDate; 
         }
 
-        public Person(string myName, int myAge, Gender myGender, DateTime myBirthDate)
+        public Person(string myName, int? myAge, Gender myGender, DateTime? myBirthDate)
         {
             this.name = myName;
             this.age = myAge;

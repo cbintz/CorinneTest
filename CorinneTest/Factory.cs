@@ -5,8 +5,7 @@ namespace CorinneTest
 {
     class Factory : IPersonFactory
     {
-        static int lowAge = 18;
-        static int highAge = 80;
+       
         static Random rnd = new Random();
 
 
@@ -19,56 +18,69 @@ namespace CorinneTest
             return list;
         }
 
-        public static DateTime GenRanAdultBirthDate()
+        public static DateTime? GenRanAdultBirthDate(int lowAge, int highAge)
         {
-            DateTime start = new DateTime(1918, 5, 29);
-            DateTime minDate = new DateTime(2000, 5, 29);
+            if (highAge < 18)
+                return null;
+            DateTime start = new DateTime((2018 - highAge), 5, 29);
+            DateTime minDate = new DateTime((2018 - lowAge), 5, 29);
             int range = (minDate - start).Days;
             return start.AddDays(rnd.Next(range));
         }
 
-        public static DateTime GenRanChildBirthDate()
+        public static DateTime? GenRanChildBirthDate(int lowAge, int highAge)
         {
-            DateTime maxDate = new DateTime(2000, 5, 29);
+            if (lowAge >= 18) { return null; }
+            if (highAge < 18) { DateTime maxDate = new DateTime((2018 - highAge), 5, 29); }
+            else { DateTime maxDate = new DateTime(2000, 5, 29); }
             int range = (DateTime.Today-maxDate).Days;
             return DateTime.Today.AddDays(rnd.Next(range));
         }
 
-        public static DateTime GenRanSeniorBirthDate()
+        public static DateTime? GenRanSeniorBirthDate(int lowAge, int highAge)
         {
-            DateTime start = new DateTime(1918, 5, 29);
-            DateTime minDate = new DateTime(1953, 5, 29);
+            if (highAge < 6) { return null; }
+            if (lowAge > 65) { DateTime minDate = new DateTime((2018 - lowAge), 5, 29);}
+            else { DateTime minDate = new DateTime(1953, 5, 29); }
+            DateTime start = new DateTime((2018-highAge), 5, 29);
             int range = (minDate - start).Days;
             return start.AddDays(rnd.Next(range));
         }
 
 
-        public static DateTime GenRanBirthDate()
+        public static DateTime GenRanBirthDate(int lowAge, int highAge)
         {
-            DateTime start = new DateTime(1918, 5, 29);
-            int range = (DateTime.Today - start).Days;
+            DateTime start = new DateTime((2018-highAge), 5, 29);
+            DateTime minDate = new DateTime((2018 - lowAge), 5, 29);
+            int range = (minDate - start).Days;
             return start.AddDays(rnd.Next(range));
         }
 
-        public static int GenAdultAge()
+        public static int? GenAdultAge(int highAge)
         {
+            if (highAge < 28)
+                return null;
             int age = rnd.Next(18, highAge);
             return age;
         }
 
-        public static int GenChildAge()
+        public static int? GenChildAge(int lowAge)
         {
+            if (lowAge >= 18)
+                return null;
             int age = rnd.Next(lowAge, 18);
             return age;
         }
 
-        public static int GenSeniorAge()
+        public static int? GenSeniorAge(int highAge)
         {
+            if (highAge < 65)
+                return null;
             int age = rnd.Next(65, highAge);
             return age;
         }
 
-        public static int GenAge()
+        public static int GenAge(int lowAge, int highAge)
         {
             int age = rnd.Next(lowAge, highAge);
             return age;
@@ -76,39 +88,39 @@ namespace CorinneTest
 
 
         // maybe make a random list of names to choose from
-        public static Person MakeWoman() {
-            return new Person("Michelle", GenAdultAge(), Gender.Woman, GenRanAdultBirthDate());
+        public static Person MakeWoman(int lowAge, int highAge) {
+            return new Person("Michelle", GenAdultAge(highAge), Gender.Woman, GenRanAdultBirthDate(lowAge, highAge));
         }
         
-        public static Person MakeSomeone() {
-            return new Person("Bard", GenAge(), Gender.GenderNonBinary, GenRanBirthDate());
+        public static Person MakeSomeone(int lowAge, int highAge) {
+            return new Person("Bard", GenAge(lowAge, highAge), Gender.GenderNonBinary, GenRanBirthDate(lowAge, highAge));
             
         }
 
-        public static Person MakeMan() {
-            return new Person("Barack", GenAdultAge(), Gender.Man, GenRanAdultBirthDate());
+        public static Person MakeMan(int lowAge, int highAge) {
+            return new Person("Barack", GenAdultAge(highAge), Gender.Man, GenRanAdultBirthDate(lowAge, highAge));
             
         }
 
 
-        public static Person MakeGirl() {
-            return new Person("Micah", GenChildAge(), Gender.Woman, GenRanChildBirthDate());
+        public static Person MakeGirl(int lowAge, int highAge) {
+            return new Person("Micah", GenChildAge(lowAge), Gender.Woman, GenRanChildBirthDate(lowAge, highAge));
         }
 
-        public static Person MakeSeniorWoman() {
-            return new Person("Pat", GenSeniorAge(), Gender.Woman, GenRanSeniorBirthDate());
+        public static Person MakeSeniorWoman(int lowAge, int highAge) {
+            return new Person("Pat", GenSeniorAge(highAge), Gender.Woman, GenRanSeniorBirthDate(lowAge, highAge));
             
         }
 
-        public static Person MakeSeniorMan()
+        public static Person MakeSeniorMan(int lowAge, int highAge)
         {
-            return new Person("Allen", GenSeniorAge(), Gender.Man, GenRanSeniorBirthDate());
+            return new Person("Allen", GenSeniorAge(highAge), Gender.Man, GenRanSeniorBirthDate(lowAge, highAge));
 
         }
 
-        public static Person MakeSeniorPerson()
+        public static Person MakeSeniorPerson(int lowAge, int highAge)
         {
-            return new Person("Mason", GenSeniorAge(), Gender.GenderNonBinary, GenRanSeniorBirthDate());
+            return new Person("Mason", GenSeniorAge(highAge), Gender.GenderNonBinary, GenRanSeniorBirthDate(lowAge, highAge));
 
         }
 
