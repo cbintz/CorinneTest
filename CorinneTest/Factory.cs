@@ -11,10 +11,25 @@ namespace CorinneTest
 
         public static List<Person> CreateInRange(int lowAge,
                                                  int highAge,
-                                                 int numOfPeople)
+                                                 int? numOfPeople)
         {
             var list = new List<Person>();
-
+            int i = 0;
+            while (i < numOfPeople)
+            {
+                int type = rnd.Next(1, 9);
+                if (type == 1) { Person newPerson = MakeWoman(lowAge, highAge); }
+                else if (type == 2) { Person newPerson = MakeSomeone(lowAge, highAge); }
+                else if (type == 3) { Person newPerson = MakeMan(lowAge, highAge); }
+                else if (type == 4) { Person newPerson = MakeGirl(lowAge, highAge); }
+                else if (type == 5) { Person newPerson = MakeBoy(lowAge, highAge); }
+                else if (type == 6) { Person newPerson = MakeChild(lowAge, highAge); }
+                else if (type == 7) { Person newPerson = MakeSeniorWoman(lowAge, highAge); }
+                else if (type == 8) { Person newPerson = MakeSeniorMan(lowAge, highAge); }
+                else if (type == 9) { Person newPerson = MakeSeniorPerson(lowAge, highAge); }
+                list.Add(newPerson);
+            }
+                
             return list;
         }
 
@@ -105,6 +120,16 @@ namespace CorinneTest
 
         public static Person MakeGirl(int lowAge, int highAge) {
             return new Person("Micah", GenChildAge(lowAge), Gender.Woman, GenRanChildBirthDate(lowAge, highAge));
+        }
+
+        public static Person MakeBoy(int lowAge, int highAge)
+        {
+            return new Person("Thomas", GenChildAge(lowAge), Gender.Man, GenRanChildBirthDate(lowAge, highAge));
+        }
+
+        public static Person MakeChild(int lowAge, int highAge)
+        {
+            return new Person("Charlie", GenChildAge(lowAge), Gender.GenderNonBinary, GenRanChildBirthDate(lowAge, highAge));
         }
 
         public static Person MakeSeniorWoman(int lowAge, int highAge) {
