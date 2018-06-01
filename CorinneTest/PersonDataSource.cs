@@ -10,6 +10,11 @@ namespace CorinneTest
         #region Singleton
         private static PersonDataSource instance = null;
 
+        public static void Reset()
+        {
+            instance = null;
+        }
+
         public static PersonDataSource Instance
         {
             get
