@@ -2,12 +2,18 @@
 using Android.Widget;
 using Android.OS;
 using CorinneTest;
+using System;
 
 namespace CorinneTest.Droid
 {
+    
     [Activity(Label = "CorinneTest", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
+        static Random rnd = new Random();
+        int lowAge = rnd.Next(0, 17);
+        int highAge = 50 + rnd.Next(1, 50);
+        int numPeople = rnd.Next(1, 100);
         #region Variables
         TextView PersonName;
         TextView PersonAge;
@@ -26,8 +32,7 @@ namespace CorinneTest.Droid
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
 
-
-            PersonDataSource.Instance.SetList(11, 85, 10);
+            PersonDataSource.Instance.SetList(lowAge, highAge,  numPeople);
             this.PersonName = FindViewById<TextView>(Resource.Id.name);
             this.PersonAge = FindViewById<TextView>(Resource.Id.age);
             this.PersonGender = FindViewById<TextView>(Resource.Id.gender);
@@ -54,15 +59,16 @@ namespace CorinneTest.Droid
 
         void NewListButton_Click(object sender, System.EventArgs e)
         {
-            PersonDataSource.Instance.SetList(11, 85, 10);
+            PersonDataSource.Reset();
+            PersonDataSource.Instance.SetList(lowAge, highAge, numPeople);
+            this.Index = 0;
+            loadPerson(this.Index);
 
         }
 
         void loadPerson(int index) {
             this.Index = index;
-            // do stuff.
             var person = PersonDataSource.Instance.GetPerson(index);
-            // keep track of index in singleton list
             this.PersonName.Text = person.Name;
             this.PersonAge.Text = person.Age.ToString();
             this.PersonGender.Text = person.Gender.ToString();
