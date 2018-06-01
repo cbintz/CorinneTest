@@ -4,13 +4,24 @@ namespace CorinneTest
     public class Person 
     {
         string name;
+        int? age;
+        Gender gender;
+        DateTime? birthDate;
+
+        public Person(string myName, int? myAge, Gender myGender, DateTime? myBirthDate)
+        {
+            this.name = myName;
+            this.age = myAge;
+            this.gender = myGender;
+            this.birthDate = myBirthDate;
+        }
+
         public string Name
         {
             get => this.name; 
             set { this.name = value; }
         }
 
-        int? age;
         public int Age
         {
             get { if (this.age == null) this.Age = 1; return this.age.Value; }
@@ -21,7 +32,6 @@ namespace CorinneTest
             }
         }
 
-        Gender gender;
         public Gender Gender
         {
             get => this.gender; 
@@ -29,18 +39,11 @@ namespace CorinneTest
 
         }
 
-        DateTime? birthDate;
         public DateTime? BirthDate
         {
             get => this.birthDate; 
         }
 
-        public Person(string myName, int? myAge, Gender myGender, DateTime? myBirthDate)
-        {
-            this.name = myName;
-            this.age = myAge;
-            this.gender = myGender;
-            this.birthDate = myBirthDate;
-        }
+
     }
 }
