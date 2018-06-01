@@ -13,9 +13,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_below="@id/heading"
             android:background="@android:color/transparent"
             android:textColor="@android:color/black"
             android:text="Change Person" />
+        <Button
+            android:id="@+id/newlist_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/heading"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/black"
+            android:text="New List" />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"

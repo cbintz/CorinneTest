@@ -34,6 +34,8 @@ namespace CorinneTest.Droid
             this.PersonIndex = FindViewById<TextView>(Resource.Id.index);
             this.ChangePersonButton = FindViewById<Button>(Resource.Id.change_button);
             this.ChangePersonButton.Click += ChangePersonButton_Click;
+            this.ChangePersonButton = FindViewById<Button>(Resource.Id.newlist_button);
+            this.ChangePersonButton.Click += NewListButton_Click;
             loadPerson(this.Index);
 
 
@@ -47,6 +49,12 @@ namespace CorinneTest.Droid
             if (this.Index < PersonDataSource.Instance.People.Count) { loadPerson(this.Index + 1); }
             else { loadPerson(this.Index); }
             
+        }
+
+        void NewListButton_Click(object sender, System.EventArgs e)
+        {
+            PersonDataSource.Instance.SetList(11, 85, 10);
+
         }
 
         void loadPerson(int index) {
