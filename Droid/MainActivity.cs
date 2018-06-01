@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using CorinneTest;
 
 namespace CorinneTest.Droid
 {
@@ -9,6 +10,10 @@ namespace CorinneTest.Droid
     {
         #region Variables
         TextView PersonName;
+        TextView PersonAge;
+        TextView PersonBirthDate;
+        TextView PersonGender;
+        TextView PersonIndex;
         Button ChangePersonButton;
 
         int Index = 0;
@@ -20,24 +25,40 @@ namespace CorinneTest.Droid
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
 
-            this.PersonName = FindViewById<TextView>(Resource.Id.name);
 
+            PersonDataSource.Instance.SetList(11, 85, 10);
+            this.PersonName = FindViewById<TextView>(Resource.Id.name);
+            this.PersonAge = FindViewById<TextView>(Resource.Id.age);
+            this.PersonGender = FindViewById<TextView>(Resource.Id.gender);
+            this.PersonBirthDate = FindViewById<TextView>(Resource.Id.birthdate);
+            this.PersonIndex = FindViewById<TextView>(Resource.Id.index);
             this.ChangePersonButton = FindViewById<Button>(Resource.Id.change_button);
             this.ChangePersonButton.Click += ChangePersonButton_Click;
-
             loadPerson(this.Index);
+
+
+
         }
         #endregion
 
         #region Callback
         void ChangePersonButton_Click(object sender, System.EventArgs e)
         {
-            loadPerson(this.Index + 1);
+            if (this.Index < PersonDataSource.Instance.People.Count) { loadPerson(this.Index + 1); }
+            else { loadPerson(this.Index); }
+            
         }
 
         void loadPerson(int index) {
+            this.Index = index;
             // do stuff.
-            this.PersonName.Text = "something?";
+            var person = PersonDataSource.Instance.GetPerson(index);
+            // keep track of index in singleton list
+            this.PersonName.Text = person.Name;
+            this.PersonAge.Text = person.Age.ToString();
+            this.PersonGender.Text = person.Gender.ToString();
+            this.PersonBirthDate.Text = person.BirthDate.ToString();
+            this.PersonIndex.Text = "Index: " + this.Index.ToString();
         }
         #endregion
     }

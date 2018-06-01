@@ -26,6 +26,16 @@ namespace CorinneTest
         {
             this.People = new List<Person>();
         }
+
+        public void SetList(int lowAge, int highAge, int numPeople){
+            if (instance != null)
+                this.People = Factory.CreateInRange(lowAge, highAge, numPeople);
+        }
+
+        public Person GetPerson(int index){
+            if (index < this.People.Count) { return this.People[index]; }
+            else { return this.People[this.People.Count-1]; }
+        }
         #endregion
 
         #region Variables
