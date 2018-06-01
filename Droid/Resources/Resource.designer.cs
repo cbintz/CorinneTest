@@ -45,7 +45,13 @@ namespace CorinneTest.Droid
 		{
 			
 			// aapt resource value: 0x7f050000
-			public const int myButton = 2131034112;
+			public const int button_container = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int change_button = 2131034113;
+			
+			// aapt resource value: 0x7f050002
+			public const int name = 2131034114;
 			
 			static Id()
 			{

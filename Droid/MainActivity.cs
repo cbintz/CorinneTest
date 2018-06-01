@@ -7,21 +7,39 @@ namespace CorinneTest.Droid
     [Activity(Label = "CorinneTest", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
-        int count = 1;
+        #region Variables
+        TextView PersonName;
+        Button ChangePersonButton;
 
+        int Index = 0;
+        #endregion
+
+        #region Life Cycle
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.myButton);
+            this.PersonName = FindViewById<TextView>(Resource.Id.name);
 
-            button.Click += delegate { button.Text = $"{count++} clicks!"; };
+            this.ChangePersonButton = FindViewById<Button>(Resource.Id.change_button);
+            this.ChangePersonButton.Click += ChangePersonButton_Click;
+
+            loadPerson(this.Index);
         }
+        #endregion
+
+        #region Callback
+        void ChangePersonButton_Click(object sender, System.EventArgs e)
+        {
+            loadPerson(this.Index + 1);
+        }
+
+        void loadPerson(int index) {
+            // do stuff.
+            this.PersonName.Text = "something?";
+        }
+        #endregion
     }
 }
 
