@@ -15,6 +15,7 @@ namespace CorinneTest.Droid
         TextView PersonGender;
         TextView PersonIndex;
         Button ChangePersonButton;
+        Button NewListButton;
 
         int Index = 0;
         #endregion
@@ -34,8 +35,8 @@ namespace CorinneTest.Droid
             this.PersonIndex = FindViewById<TextView>(Resource.Id.index);
             this.ChangePersonButton = FindViewById<Button>(Resource.Id.change_button);
             this.ChangePersonButton.Click += ChangePersonButton_Click;
-            this.ChangePersonButton = FindViewById<Button>(Resource.Id.newlist_button);
-            this.ChangePersonButton.Click += NewListButton_Click;
+            this.NewListButton = FindViewById<Button>(Resource.Id.newlist_button);
+            this.NewListButton.Click += NewListButton_Click;
             loadPerson(this.Index);
 
 
