@@ -3,11 +3,10 @@ using System.Collections.Generic;
 
 namespace CorinneTest
 {
-<<<<<<< HEAD
-    class Factory 
-=======
-    public class Factory : IPersonFactory
->>>>>>> 358ee6399fe72e9297a1bd5f0aaacb5667802c92
+
+
+    public class Factory 
+
     {
 
         static Random rnd = new Random();
