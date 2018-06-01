@@ -13,7 +13,7 @@ namespace CorinneTest
         int? age;
         public int Age
         {
-            get { if (this.age == null) this.Age = 1; return this.age; }
+            get { if (this.age == null) this.Age = 1; return this.age.Value; }
             set {
                 if (value < 1) value = 1;
                 else if (value > 100) value = 100;
