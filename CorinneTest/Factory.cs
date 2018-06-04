@@ -83,7 +83,7 @@ namespace CorinneTest
         public static DateTime? GenRanSeniorBirthDate(int lowAge, int highAge)
         {
             DateTime minDate;
-            if (highAge < 6) { return null; }
+            if (highAge < 65) { return null; }
             if (lowAge > 65) { minDate = new DateTime((2018 - lowAge), 5, 29); }
             else { minDate = new DateTime(1953, 5, 29); }
             var start = new DateTime((2018 - highAge), 5, 29);

@@ -11,9 +11,6 @@ namespace CorinneTest.Droid
     public class MainActivity : Activity
     {
         static Random rnd = new Random();
-        int lowAge = rnd.Next(0, 17);
-        int highAge = 50 + rnd.Next(1, 50);
-        int numPeople = rnd.Next(1, 100);
         #region Variables
         TextView PersonName;
         TextView PersonAge;
@@ -27,11 +24,28 @@ namespace CorinneTest.Droid
         #endregion
 
         #region Life Cycle
+        #region Randomize Ages and Size
+        int GenLowAge(){
+            int lowAge = rnd.Next(0, 17);
+            return lowAge;
+
+        }
+
+        int GenHighAge(){
+            int highAge = 50 + rnd.Next(1, 50);
+            return highAge;
+        }
+
+        int GenNumPeople(){
+            int numPeople = rnd.Next(1, 100);
+            return numPeople;
+        }
+        #endregion
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
-            PersonDataSource.Instance.SetList(lowAge, highAge,  numPeople);
+            PersonDataSource.Instance.SetList(GenLowAge(), GenHighAge(),  GenNumPeople());
             this.PersonName = FindViewById<TextView>(Resource.Id.name);
             this.PersonAge = FindViewById<TextView>(Resource.Id.age);
             this.PersonGender = FindViewById<TextView>(Resource.Id.gender);
@@ -58,7 +72,7 @@ namespace CorinneTest.Droid
 
         void NewListButton_Click(object sender, System.EventArgs e)
         {
-            PersonDataSource.Instance.SetList(lowAge, highAge, numPeople);
+            PersonDataSource.Instance.SetList(GenLowAge(), GenHighAge(), GenNumPeople());
             this.Index = 0;
             loadPerson(this.Index);
 
