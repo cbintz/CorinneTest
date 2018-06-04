@@ -20,6 +20,7 @@ namespace CorinneTest.Droid
         TextView DaysAlive;
         TextView MonthsAlive;
         TextView AgeType;
+        TextView ZodiacSign;
         Button ChangePersonButton;
         Button NewListButton;
 
@@ -57,6 +58,7 @@ namespace CorinneTest.Droid
             this.DaysAlive = FindViewById<TextView>(Resource.Id.daysalive);
             this.MonthsAlive = FindViewById<TextView>(Resource.Id.monthsalive);
             this.AgeType = FindViewById<TextView>(Resource.Id.agetype);
+            this.ZodiacSign = FindViewById<TextView>(Resource.Id.zodiac);
             this.ChangePersonButton = FindViewById<Button>(Resource.Id.change_button);
             this.ChangePersonButton.Click += ChangePersonButton_Click;
             this.NewListButton = FindViewById<Button>(Resource.Id.newlist_button);
@@ -95,6 +97,7 @@ namespace CorinneTest.Droid
             this.DaysAlive.Text = "Days Alive: " + person.BirthDate.DaysAlive().ToString();
             this.MonthsAlive.Text = "Months Alive: " + person.BirthDate.MonthsAlive().ToString();
             this.AgeType.Text = "Age Type: " + person.BirthDate.AgeType();
+            this.ZodiacSign.Text = "Zodiac Sign: " + person.BirthDate.ZodaicSign();
         }
         #endregion
     }
