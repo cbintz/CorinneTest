@@ -87,5 +87,73 @@ namespace CorinneTest
             return zodiac;
 
         }
+
+        public static string PrintPretty(this DateTime date)
+        {
+            int month = date.Month;
+            string monthPretty;
+            switch (month)
+            {
+                case 1:
+                    monthPretty = "January";
+                    break;
+                case 2:
+                    monthPretty = "February";
+                    break;
+                case 3:
+                    monthPretty = "March";
+                    break;
+                case 4:
+                    monthPretty = "April";
+                    break;
+                case 5:
+                    monthPretty = "May";
+                    break;
+                case 6:
+                    monthPretty = "June";
+                    break;
+                case 7:
+                    monthPretty = "July";
+                    break;
+                case 8:
+                    monthPretty = "August";
+                    break;
+                case 9:
+                    monthPretty = "September";
+                    break;
+                case 10:
+                    monthPretty = "October";
+                    break;
+                case 11:
+                    monthPretty = "November";
+                    break;
+                default:
+                    monthPretty = "December";
+                    break;
+            }
+
+            string day = date.Day.ToString();
+            string year = date.Year.ToString();
+            return monthPretty + " " + day + "th, " + year;
+        }
+
+        public static string PrintStandardUS(this DateTime date)
+        {
+            string month = date.Month.ToString();
+            string day = date.Day.ToString();
+            string year = date.Year.ToString();
+
+            return month + "/" + day + "/" + year; 
+        }
+
+        public static string PrintStandardNotUS(this DateTime date)
+        {
+            string month = date.Month.ToString();
+            string day = date.Day.ToString();
+            string year = date.Year.ToString();
+
+            return day + "/" + month + "/" + year;
+        }
+
     }
 }

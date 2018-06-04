@@ -50,8 +50,8 @@ namespace CorinneTest.Droid
 			// aapt resource value: 0x7f05000a
 			public const int agetype = 2131034122;
 			
-			// aapt resource value: 0x7f050006
-			public const int birthdate = 2131034118;
+			// aapt resource value: 0x7f050005
+			public const int birthdatepretty = 2131034117;
 			
 			// aapt resource value: 0x7f050000
 			public const int button_container = 2131034112;
@@ -62,8 +62,8 @@ namespace CorinneTest.Droid
 			// aapt resource value: 0x7f050008
 			public const int daysalive = 2131034120;
 			
-			// aapt resource value: 0x7f050005
-			public const int gender = 2131034117;
+			// aapt resource value: 0x7f050006
+			public const int gender = 2131034118;
 			
 			// aapt resource value: 0x7f050007
 			public const int index = 2131034119;
