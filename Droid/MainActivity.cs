@@ -18,6 +18,7 @@ namespace CorinneTest.Droid
         TextView PersonGender;
         TextView PersonIndex;
         TextView DaysAlive;
+        TextView MonthsAlive;
         Button ChangePersonButton;
         Button NewListButton;
 
@@ -53,6 +54,7 @@ namespace CorinneTest.Droid
             this.PersonBirthDate = FindViewById<TextView>(Resource.Id.birthdate);
             this.PersonIndex = FindViewById<TextView>(Resource.Id.index);
             this.DaysAlive = FindViewById<TextView>(Resource.Id.daysalive);
+            this.MonthsAlive = FindViewById<TextView>(Resource.Id.monthsalive);
             this.ChangePersonButton = FindViewById<Button>(Resource.Id.change_button);
             this.ChangePersonButton.Click += ChangePersonButton_Click;
             this.NewListButton = FindViewById<Button>(Resource.Id.newlist_button);
@@ -89,6 +91,7 @@ namespace CorinneTest.Droid
             this.PersonBirthDate.Text = person.BirthDate.ToString();
             this.PersonIndex.Text = "Index: " + this.Index.ToString();
             this.DaysAlive.Text = "Days Alive: " + person.BirthDate.DaysAlive().ToString();
+            this.MonthsAlive.Text = "Months Alive: " + person.BirthDate.MonthsAlive().ToString();
         }
         #endregion
     }

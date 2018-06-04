@@ -65,6 +65,9 @@ namespace CorinneTest.Droid
 			// aapt resource value: 0x7f050007
 			public const int index = 2131034119;
 			
+			// aapt resource value: 0x7f050009
+			public const int monthsalive = 2131034121;
+			
 			// aapt resource value: 0x7f050003
 			public const int name = 2131034115;
 			
