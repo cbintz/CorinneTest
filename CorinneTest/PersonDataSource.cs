@@ -10,11 +10,7 @@ namespace CorinneTest
         #region Singleton
         private static PersonDataSource instance = null;
 
-        public static void Reset()
-        {
-            instance = null;
-        }
-
+    
         public static PersonDataSource Instance
         {
             get
@@ -32,9 +28,8 @@ namespace CorinneTest
             this.People = new List<Person>();
         }
 
-        public void SetList(int lowAge, int highAge, int numPeople){
-            if (instance != null)
-                this.People = Factory.CreateInRange(lowAge, highAge, numPeople);
+       public void SetList(int lowAge, int highAge, int numPeople){
+           this.People = Factory.CreateInRange(lowAge, highAge, numPeople);
         }
 
         public Person GetPerson(int index){

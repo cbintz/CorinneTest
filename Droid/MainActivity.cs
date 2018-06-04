@@ -31,7 +31,6 @@ namespace CorinneTest.Droid
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
-
             PersonDataSource.Instance.SetList(lowAge, highAge,  numPeople);
             this.PersonName = FindViewById<TextView>(Resource.Id.name);
             this.PersonAge = FindViewById<TextView>(Resource.Id.age);
@@ -59,7 +58,6 @@ namespace CorinneTest.Droid
 
         void NewListButton_Click(object sender, System.EventArgs e)
         {
-            PersonDataSource.Reset();
             PersonDataSource.Instance.SetList(lowAge, highAge, numPeople);
             this.Index = 0;
             loadPerson(this.Index);
