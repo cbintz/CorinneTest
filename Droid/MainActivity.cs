@@ -26,7 +26,7 @@ namespace CorinneTest.Droid
         #region Life Cycle
         #region Randomize Ages and Size
         int GenLowAge(){
-            int lowAge = rnd.Next(0, 17);
+            int lowAge = rnd.Next(1, 17);
             return lowAge;
 
         }
