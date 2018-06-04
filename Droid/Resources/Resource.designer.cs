@@ -47,6 +47,9 @@ namespace CorinneTest.Droid
 			// aapt resource value: 0x7f050004
 			public const int age = 2131034116;
 			
+			// aapt resource value: 0x7f05000a
+			public const int agetype = 2131034122;
+			
 			// aapt resource value: 0x7f050006
 			public const int birthdate = 2131034118;
 			
