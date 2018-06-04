@@ -56,6 +56,9 @@ namespace CorinneTest.Droid
 			// aapt resource value: 0x7f050001
 			public const int change_button = 2131034113;
 			
+			// aapt resource value: 0x7f050008
+			public const int daysalive = 2131034120;
+			
 			// aapt resource value: 0x7f050005
 			public const int gender = 2131034117;
 			

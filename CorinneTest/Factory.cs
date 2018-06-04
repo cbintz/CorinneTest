@@ -82,7 +82,7 @@ namespace CorinneTest
             return list;
         }
         #region various genBirthDates
-        public static DateTime? GenRanAdultBirthDate(int age)
+        public static DateTime GenRanAdultBirthDate(int age)
         {
             var start = new DateTime((2018 - age), 1, 1);
             var end = new DateTime((2018 - age), 12, 31);
@@ -90,7 +90,7 @@ namespace CorinneTest
             return start.AddDays(rnd.Next(range));
         }
 
-        public static DateTime? GenRanChildBirthDate(int age)
+        public static DateTime GenRanChildBirthDate(int age)
         {
             var start = new DateTime((2018 - age), 1, 1);
             var end = new DateTime((2018 - age), 12, 31);
@@ -98,7 +98,7 @@ namespace CorinneTest
             return start.AddDays(rnd.Next(range));
         }
 
-        public static DateTime? GenRanSeniorBirthDate(int age)
+        public static DateTime GenRanSeniorBirthDate(int age)
         {
             var start = new DateTime((2018 - age), 1, 1);
             var end = new DateTime((2018 - age), 12, 31);

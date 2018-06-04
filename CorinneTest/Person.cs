@@ -6,9 +6,9 @@ namespace CorinneTest
         string name;
         int? age;
         Gender gender;
-        DateTime? birthDate;
+        DateTime birthDate;
 
-        public Person(string myName, int? myAge, Gender myGender, DateTime? myBirthDate)
+        public Person(string myName, int? myAge, Gender myGender, DateTime myBirthDate)
         {
             this.name = myName;
             this.age = myAge;
@@ -39,7 +39,7 @@ namespace CorinneTest
 
         }
 
-        public DateTime? BirthDate
+        public DateTime BirthDate
         {
             get => this.birthDate; 
         }
