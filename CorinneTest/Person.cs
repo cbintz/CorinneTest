@@ -8,6 +8,7 @@ namespace CorinneTest
         Gender gender;
         DateTime birthDate;
 
+
         public Person(string myName, int? myAge, Gender myGender, DateTime myBirthDate)
         {
             this.name = myName;

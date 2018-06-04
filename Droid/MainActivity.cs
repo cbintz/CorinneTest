@@ -21,6 +21,7 @@ namespace CorinneTest.Droid
         TextView AgeType;
         TextView ZodiacSign;
         TextView BirthDatePretty;
+        //bool isWoman;
         Button ChangePersonButton;
         Button NewListButton;
 
@@ -86,10 +87,12 @@ namespace CorinneTest.Droid
 
         }
 
+
         void loadPerson(int index) {
             int birthDateType = rnd.Next(0, 2);
             this.Index = index;
             var person = PersonDataSource.Instance.GetPerson(index);
+            //if (person.Gender == Gender.Woman) { isWoman = true; }
             this.PersonName.Text = person.Name;
             this.PersonAge.Text = person.Age.ToString();
             this.PersonGender.Text = person.Gender.ToString();
