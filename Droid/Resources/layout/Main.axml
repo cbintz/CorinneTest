@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <RelativeLayout
         android:id="@+id/button_container"
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
             android:layout_height="48dp"
             android:layout_alignParentTop="true"
             android:background="@android:color/transparent"
-            android:textColor="@android:color/black"
+            android:textColor="@color/text_black"
             android:text="Change Person" />
         <Button
             android:id="@+id/newlist_button"
@@ -25,90 +25,10 @@
             android:textColor="@android:color/black"
             android:text="New List" />
     </RelativeLayout>
-    <LinearLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:orientation="vertical"
-        android:layout_above="@id/button_container">
-        <TextView
-            android:id="@+id/name"
-            android:textColor="@android:color/holo_red_dark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:singleLine="true"
-            android:textSize="20sp"
-            android:text="Person Name" />
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_below="@id/name">
-            <TextView
-                android:id="@+id/age"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Age"
-                android:gravity="center_horizontal"
-                android:textColor="@android:color/@android:color/black" />
-            <TextView
-                android:id="@+id/birthdatepretty"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="BirthDatePretty"
-                android:textColor="@android:color/@android:color/black" />
-        </LinearLayout>
-        <TextView
-            android:id="@+id/gender"
-            android:textColor="@android:color/@android:color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="Gender" />
-        <TextView
-            android:id="@+id/index"
-            android:textColor="@android:color/@android:color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="Index" />
-        <TextView
-            android:id="@+id/daysalive"
-            android:textColor="@android:color/@android:color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="DaysAlive" />
-        <TextView
-            android:id="@+id/monthsalive"
-            android:textColor="@android:color/@android:color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="MonthsAlive" />
-        <TextView
-            android:id="@+id/agetype"
-            android:textColor="@android:color/@android:color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="AgeType" />
-        <TextView
-            android:id="@+id/zodiac"
-            android:textColor="@android:color/@android:color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="ZodiacSign" />
-    </LinearLayout>
+        android:layout_above="@id/button_container" />
 </RelativeLayout>
