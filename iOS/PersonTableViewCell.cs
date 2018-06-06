@@ -27,9 +27,13 @@ namespace CorinneTest.iOS
 
         public void Bind(Person person, int index){
             this.Name.Text = person.Name;
+            if (person.Gender == Gender.Woman) { this.Name.TextColor = UIColor.Green; }
+            else if (person.Gender == Gender.Man) { this.Name.TextColor = UIColor.Magenta; }
+            else { this.Name.TextColor = UIColor.Cyan; }
             this.Age.Text = person.Age.ToString();
+            this.Birthdate.Text = person.BirthDate.PrintPretty();
             //this..Text = person.Gender.ToString();
-            this.Index.Text = index.ToString();
+            this.Index.Text = "Index in List: " + index.ToString();
             this.DaysAlive.Text = "Days Alive: " + person.BirthDate.DaysAlive().ToString();
             this.MonthsAlive.Text = "Months Alive: " + person.BirthDate.MonthsAlive().ToString();
             this.ZodiacSign.Text = "Zodiac Sign: " + person.BirthDate.ZodaicSign();
