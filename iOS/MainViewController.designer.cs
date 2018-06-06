@@ -23,11 +23,6 @@ namespace CorinneTest.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (TableView != null) {
-				TableView.Dispose ();
-				TableView = null;
-			}
-
 			if (button1 != null) {
 				button1.Dispose ();
 				button1 = null;
@@ -36,6 +31,11 @@ namespace CorinneTest.iOS
 			if (button2 != null) {
 				button2.Dispose ();
 				button2 = null;
+			}
+
+			if (TableView != null) {
+				TableView.Dispose ();
+				TableView = null;
 			}
 		}
 	}
