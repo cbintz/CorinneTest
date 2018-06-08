@@ -10,6 +10,7 @@ namespace CorinneTest
         #region Singleton
         private static PersonDataSource instance = null;
 
+    
         public static PersonDataSource Instance
         {
             get
@@ -25,6 +26,15 @@ namespace CorinneTest
         private PersonDataSource()
         {
             this.People = new List<Person>();
+        }
+
+       public void SetList(int lowAge, int highAge, int numPeople){
+           this.People = Factory.CreateInRange(lowAge, highAge, numPeople);
+        }
+
+        public Person GetPerson(int index){
+            if (index < this.People.Count) { return this.People[index]; }
+            else { return this.People[this.People.Count-1]; }
         }
         #endregion
 
