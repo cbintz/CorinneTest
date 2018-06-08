@@ -46,7 +46,17 @@ namespace CorinneTest.iOS
 
             this.TableView.RegisterNibForCellReuse(PersonTableViewCell.Nib, PersonTableViewCell.Key);
             updateTable();
+
+            button1.TouchUpInside += (object sender, EventArgs e) =>
+            {
+                var alertController = UIAlertController.Create("New List", "Make New List of People", UIAlertControllerStyle.Alert);
+                alertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, alert=> updateTable()));
+                alertController.AddAction(UIAlertAction.Create("Cancel", UIAlertActionStyle.Default, null));
+                PresentViewController(alertController, true, null);
+
+            }; 
         }
+        
 
         void updateTable() {
             PersonDataSource.Instance.SetList(GenLowAge(), GenHighAge(), GenNumPeople());
